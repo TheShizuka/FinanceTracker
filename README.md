@@ -44,7 +44,7 @@ Check out the live demo of FinanceTrack:
 ### Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/<your-username>/financetrack.git
+git clone [https://github.com/<your-username>/financetrack.git](https://github.com/TheShizuka/FinanceTracker)
 cd financetrack
 ```
 
