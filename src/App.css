@@ -1,0 +1,415 @@
+/* src/App.css */
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Responsive corrections */
+@media (max-width: 640px) {
+  .card {
+    padding: 0.75rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.125rem;
+  }
+  
+  .text-xl {
+    font-size: 1rem;
+  }
+  
+  .heading-lg {
+    font-size: 1.25rem;
+  }
+  
+  .heading-md {
+    font-size: 1.125rem;
+  }
+
+  /* Stats page card values */
+  .stats-value {
+    font-size: 0.875rem !important;
+  }
+  
+  .form-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 0.5rem;
+  }
+  
+  /* Smaller grid gaps */
+  .gap-4 {
+    gap: 0.75rem;
+  }
+  
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  /* Ensure bottom nav stays at bottom */
+  main {
+    padding-bottom: 5rem;
+  }
+  
+  /* Fix notification dropdown position */
+  .fixed.top-16 {
+    top: 4rem;
+    max-width: calc(100% - 2rem);
+  }
+  
+  /* Smaller buttons */
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Reduce margins */
+  .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .mb-6 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Smaller spacings */
+  .space-y-6 {
+    row-gap: 1rem;
+  }
+}
+
+/* Fix charts on small screens */
+.recharts-responsive-container {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* Extra category grid adjustments */
+@media (max-width: 380px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Fix iOS input highlighting */
+input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+}
+
+/* Fix iOS button styling */
+button:active {
+  opacity: 0.7;
+}
+
+/* Fix notification click issues */
+.fixed {
+  z-index: 50;
+}
+
+/* Make notification list scrollable on small screens */
+.max-h-\[400px\] {
+  max-height: 60vh;
+}
+
+/* Make modals work better on small screens */
+.p-8 {
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+/* Add iOS-specific fixing */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Prevent 100vh issue on iOS */
+    min-height: -webkit-fill-available;
+  }
+  
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Use system fonts instead of loading external ones */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Swipeable transaction styles */
+.transaction-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.transaction-actions {
+  position: absolute;
+  right: -150px;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.transaction-actions button {
+  flex: 1;
+  border: none;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction-actions .edit {
+  background-color: #3b82f6;
+}
+
+.transaction-actions .delete {
+  background-color: #ef4444;
+}
+
+.transaction-item.active {
+  transform: translateX(-150px);
+}
+
+/* Make insights text alignment consistent */
+.flex.items-start span {
+  display: block;
+  text-align: left;
+}
+
+/* Transaction info layout */
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.transaction-bottom-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-date {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.transaction-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+/* Add these utility classes to your App.css */
+
+/* Button utilities */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-gray-300);
+  color: var(--color-gray-700);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dark .btn-outline {
+  border-color: var(--color-gray-600);
+  color: var(--color-gray-300);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-gray-100);
+}
+
+.dark .btn-outline:hover {
+  background-color: var(--color-gray-700);
+}
+
+.btn-danger {
+  background-color: var(--color-red-500);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-red-600);
+}
+
+.btn-success {
+  background-color: var(--color-green-500);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-success:hover {
+  background-color: var(--color-green-600);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Form utilities */
+.form-input, .form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dark .form-input, .dark .form-select {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-700);
+  color: var(--color-gray-100);
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.25);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+.dark .form-label {
+  color: var(--color-gray-300);
+}
+
+/* Card utilities */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.dark .card {
+  background-color: var(--color-gray-800);
+}
+
+/* Heading utilities */
+.heading-lg {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.dark .heading-lg {
+  color: white;
+}
+
+.heading-md {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.dark .heading-md {
+  color: white;
+}
+
+.heading-sm {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.dark .heading-sm {
+  color: white;
+}
+
+/* Animation utilities */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Color variables */
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-rgb: 99, 102, 241;
+  
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  
+  --color-green-500: #10b981;
+  --color-green-600: #059669;
+}

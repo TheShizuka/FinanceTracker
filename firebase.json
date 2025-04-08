@@ -1,0 +1,39 @@
+{
+    "hosting": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://*.firebasestorage.googleapis.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com; frame-src 'self'; object-src 'none'"
+            }
+          ]
+        }
+      ]
+    }
+  }

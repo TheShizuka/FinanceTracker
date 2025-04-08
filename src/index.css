@@ -1,0 +1,667 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary colors */
+  --color-primary: #0666eb;
+  --color-primary-dark: #0550bc;
+  --color-primary-light: rgba(6, 102, 235, 0.1);
+  --color-primary-rgb: 6, 102, 235;
+  
+  /* Secondary colors */
+  --color-secondary: #10b981;
+  --color-secondary-dark: #059669;
+  --color-secondary-light: #34d399;
+  
+  /* Accent colors */
+  --color-accent: #8b5cf6;
+  --color-accent-dark: #7c3aed;
+  --color-accent-light: #a78bfa;
+  
+  /* Neutral colors */
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  
+  /* Semantic colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Gray scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Red scale */
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  
+  /* Green scale */
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-500: #10b981;
+  --color-green-600: #059669;
+  --color-green-700: #047857;
+  --color-green-800: #065f46;
+  --color-green-900: #064e3b;
+  
+  /* Dark theme */
+  --color-background-dark: #111827;
+  --color-surface-dark: #1f2937;
+  --color-text-dark: #f9fafb;
+  --color-text-secondary-dark: #e5e7eb;
+  --color-border-dark: #374151;
+  
+  /* Border radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+}
+
+/* Base styles */
+body {
+  @apply font-sans text-base antialiased;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.dark body {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
+}
+
+/* Component classes */
+@layer components {
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden dark:bg-gray-800 dark:border-gray-700;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent hover:bg-gray-50 focus:ring-gray-500 dark:border-gray-600 dark:hover:bg-gray-700;
+    background-color: transparent;
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-gray-700);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .dark .btn-outline {
+    border-color: var(--color-gray-600);
+    color: var(--color-gray-300);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-gray-100);
+  }
+  
+  .dark .btn-outline:hover {
+    background-color: var(--color-gray-700);
+  }
+  
+  .btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-600 focus:ring-red-500;
+    background-color: var(--color-red-500);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-danger:hover {
+    background-color: var(--color-red-600);
+  }
+  
+  .btn-success {
+    background-color: var(--color-green-500);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-success:hover {
+    background-color: var(--color-green-600);
+  }
+  
+  .btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Form styles */
+  .form-input, .form-select {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 0.5rem;
+    background-color: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .dark .form-input, .dark .form-select {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-700);
+    color: var(--color-gray-100);
+  }
+  
+  .form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.25);
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-gray-700);
+  }
+  
+  .dark .form-label {
+    color: var(--color-gray-300);
+  }
+  
+  /* Text styles */
+  .heading-xl {
+    @apply text-3xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-2xl font-bold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+  }
+  
+  .dark .heading-lg {
+    color: white;
+  }
+  
+  .heading-md {
+    @apply text-xl font-bold;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+  }
+  
+  .dark .heading-md {
+    color: white;
+  }
+  
+  .heading-sm {
+    @apply text-lg font-bold;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+  }
+  
+  .dark .heading-sm {
+    color: white;
+  }
+  
+  .text-body {
+    @apply text-base;
+  }
+  
+  /* Avatar */
+  .avatar {
+    @apply rounded-full bg-gray-200 flex items-center justify-center overflow-hidden text-gray-700 dark:bg-gray-600 dark:text-gray-200;
+  }
+  
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+  
+  .badge-error {
+    @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+  
+  /* Transaction styles */
+  .transaction-item {
+    @apply flex items-center p-4 border-b border-gray-100 last:border-b-0 dark:border-gray-700;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .transaction-icon {
+    @apply flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-3;
+  }
+  
+  .transaction-content {
+    @apply flex-1 min-w-0;
+  }
+  
+  .transaction-amount {
+    @apply font-medium;
+  }
+  
+  .transaction-amount-positive {
+    @apply text-green-500;
+  }
+  
+  .transaction-amount-negative {
+    @apply text-red-500;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Transaction info layout */
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.transaction-bottom-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-date {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.transaction-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Responsive corrections */
+@media (max-width: 640px) {
+  .card {
+    padding: 0.75rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.125rem;
+  }
+  
+  .text-xl {
+    font-size: 1rem;
+  }
+  
+  .heading-lg {
+    font-size: 1.25rem;
+  }
+  
+  .heading-md {
+    font-size: 1.125rem;
+  }
+
+  /* Stats page card values */
+  .stats-value {
+    font-size: 0.875rem !important;
+  }
+  
+  .form-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 0.5rem;
+  }
+  
+  /* Smaller grid gaps */
+  .gap-4 {
+    gap: 0.75rem;
+  }
+  
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  /* Ensure bottom nav stays at bottom */
+  main {
+    padding-bottom: 5rem;
+  }
+  
+  /* Fix notification dropdown position */
+  .fixed.top-16 {
+    top: 4rem;
+    max-width: calc(100% - 2rem);
+  }
+  
+  /* Smaller buttons */
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Reduce margins */
+  .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .mb-6 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Smaller spacings */
+  .space-y-6 {
+    row-gap: 1rem;
+  }
+}
+
+/* Fix charts on small screens */
+.recharts-responsive-container {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* Extra category grid adjustments */
+@media (max-width: 380px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Fix iOS input highlighting */
+input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+}
+
+/* Fix iOS button styling */
+button:active {
+  opacity: 0.7;
+}
+
+/* Fix notification click issues */
+.fixed {
+  z-index: 50;
+}
+
+/* Make notification list scrollable on small screens */
+.max-h-\[400px\] {
+  max-height: 60vh;
+}
+
+/* Make modals work better on small screens */
+.p-8 {
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+/* Add iOS-specific fixing */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Prevent 100vh issue on iOS */
+    min-height: -webkit-fill-available;
+  }
+  
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Make insights text alignment consistent */
+.flex.items-start span {
+  display: block;
+  text-align: left;
+}
+
+/* Primary light background for highlights */
+.bg-primary-light {
+  background-color: var(--color-primary-light);
+}
+
+/* Additional Animation Styles */
+
+/* Staggered animations for lists */
+@keyframes staggerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  opacity: 0;
+  animation: staggerFadeIn 0.4s ease-out forwards;
+}
+
+.stagger-list > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-list > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-list > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-list > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-list > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-list > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-list > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-list > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* Enhanced card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Button animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Page transitions */
+.page-transition {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Enhanced fade-in animation */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-smoothFadeIn {
+  animation: smoothFadeIn 0.5s ease-out forwards;
+}
+
+.form-input-with-icon {
+  @apply pl-16 !important;
+}
+
+.search-input {
+  @apply pl-16 !important;
+}
+
+.icon-container {
+  @apply pl-4 !important;
+}
+
+input::placeholder {
+  @apply pl-4 !important;
+}
+.form-input-with-icon {
+  @apply pl-10 !important;
+}
+
+.search-input {
+  @apply pl-10 !important;
+}
+
+.icon-container {
+  @apply pl-3 !important;
+}
+
+input::placeholder {
+  padding-left: 0 !important;
+}
