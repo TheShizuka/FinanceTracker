@@ -31,9 +31,9 @@ Check out the live demo of FinanceTrack:
 
 ## Screenshots
 ### Light Mode
-![Light Mode Screenshot](screenshots/light-mode.png)
+![Light Mode Screenshot](screenshots/light-mode.PNG)
 ### Dark Mode
-![Dark Mode Screenshot](screenshots/dark-mode.png)
+![Dark Mode Screenshot](screenshots/dark-mode.PNG)
 
 ## Installation
 
